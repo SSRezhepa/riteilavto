@@ -1,0 +1,37 @@
+<div class="list-group">
+
+
+    {% for category in categories %}
+        <div class="list-group-item-box ">
+            <a href="{{ category.href }}" class="list-group-item "><span class="dot">·</span> {{ category.name }}</a> 
+            {% if category.children %}
+
+
+
+                <div class="list-group-item-children">
+                    {% set i  = 0 %}
+                    {% for child in category.children %}
+                        {% set i=i+1 %}
+
+
+
+                        <a href="{{ child.href }}" class="list-group-item"><span class="dot">·</span>{{ child.name }}</a>
+
+                        {% if i == 5 %}
+                            {% set i=0 %}
+                        </div>
+                        <div class="list-group-item-children">
+                        {% endif %}
+
+
+
+                    {% endfor %}
+
+                </div>
+
+
+            {% endif %}
+        </div>
+        <hr class="list-group-item-box-hr">
+    {% endfor %}
+</div>

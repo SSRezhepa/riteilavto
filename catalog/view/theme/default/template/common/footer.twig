@@ -1,0 +1,190 @@
+<footer>
+    <div class="container">
+        <div class="row">
+
+
+
+            <div class="col-sm-five">
+
+                <div class="col-sm-12 logo-f" >
+
+
+                    <img src="/image/catalog/logo2.png"  class="img-responsive" />
+
+                    <div class="col-sm-12 s-f-box" >
+                        
+                        
+                        
+                        
+                        <div class=" s-f" >
+                            <a href="">
+
+                                <i class="fa fa-instagram"></i>
+
+                            </a>
+                        </div>
+                        
+                        
+                        
+                        <div class=" s-f" >
+                            <a href="">
+
+                                <i class="fa fa-odnoklassniki"></i>
+
+                            </a>
+                        </div>
+                        
+                        
+                        
+                        <div class=" s-f" >
+                            <a href="">
+
+                                <i class="fa fa-vk"></i>
+
+                            </a>
+                        </div>
+                        
+                        
+                        <div class=" s-f" >
+                            <a href="">
+
+                                <i class="fa fa-facebook"></i>
+
+                            </a>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!--
+                        <div class=" s-f" >
+                            <a href="">
+                                <img src="/image/s1h.png"  class="img-responsive" />
+                                <img src="/image/s1.png"  class="img-responsive" />
+
+                            </a>
+                        </div>
+                        <div class="s-f" >
+                            <a href="">
+                                <img src="/image/s2h.png"  class="img-responsive" />
+                                <img src="/image/s2.png"  class="img-responsive" />
+
+                            </a>
+                        </div>
+                        <div class=" s-f" >
+                            <a href="">
+                                <img src="/image/s3h.png"  class="img-responsive" />
+                                <img src="/image/s3.png"  class="img-responsive" />
+
+                            </a>
+                        </div>
+                        <div class=" s-f" >
+                            <a href="">
+                                <img src="/image/s4h.png"  class="img-responsive" />
+                                <img src="/image/s4.png"  class="img-responsive" />
+
+                            </a>
+                        </div>
+                    
+                    
+                    -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-sm-five">
+
+                <ul class="list-unstyled">
+                         <li><a href="{{ cart_url }}">Корзина <span class="f-count">({{ cart }}руб.)</span></a></li>
+                    <li><a href="{{ wishlist }}">{{ text_wishlist }} <span class="f-count"></span></a></li>
+                    <li><a href="{{ account }}">{{ text_account }}</a></li>
+
+                </ul>
+            </div>
+
+
+
+
+
+
+            {% if informations %}
+
+                {% for information_col in informations %}
+
+                    <div class="col-sm-five">
+
+                        <ul class="list-unstyled">
+                            {% for information in information_col %}
+                                <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+                                {% endfor %}
+                        </ul>
+                    </div>
+
+
+                {% endfor %}
+            {% endif %}
+
+
+
+
+
+
+
+            <div class="col-sm-five">
+
+          {#      <ul class="list-unstyled">
+               
+                    <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+                    <li><a href="{{ return }}">{{ text_return }}</a></li>
+                    <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+                    
+                   
+                </ul>
+                 #}
+                
+                
+<div itemscope>
+<span itemprop="telephone"><strong>+7 (913) 155-25-35</strong></span>
+<span itemprop="email"><strong>info@avto55mag.ru</strong></span>
+<br>
+
+<div class="f-c5-r2">
+<span >© 2005-2019</span>
+  <span itemprop="name">«Ритейл Авто»</span>
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+      <span itemprop="postalCode">644031</span>
+      <span itemprop="addressLocality">Россия, Омск</span>,<br>
+      <span itemprop="streetAddress">ул. Профинтерна 11</span>
+  </div>
+</div>
+</div>
+                
+                
+            </div>
+
+
+        </div>
+
+    </div>
+</footer>
+{% for script in scripts %}
+    <script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+</body></html>

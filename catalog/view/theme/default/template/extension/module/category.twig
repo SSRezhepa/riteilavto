@@ -1,0 +1,119 @@
+<div class="list-group dropdown-hover">
+
+    <a class="list-group-item list-group-title">Категории каталога</a> 
+    {% for category in categories %}
+        <div class="list-group-item-box list-group-item-lvl-1">
+
+
+            {% if category.children %}
+                <a href="{{ category.href }}" data-toggle="dropdown-btn-lvl-2" class="list-group-item list-group-lvl-2-name"><span class="dot">·</span> {{ category.name }} <i class="fa fa-caret-right " aria-hidden="true"></i></a> 
+
+                <div class="list-group-item-children dropdown-menu list-group-lvl-2">
+                    <div class="dropdown-menu-box">
+                        <div class="list-group-item-children-col">
+                            {% set i  = 0 %}
+                            {% for child in category.children %}
+
+
+                                <a href="{{ child.href }}" class="list-group-item  list-group-item-child">{{ child.name }}</a>
+
+                                {% for subchild in child.children %}
+
+                                    <a href="{{ subchild.href }}" class="list-group-item list-group-item-subchild">{{ subchild.name }}</a>
+                                    {% if i == 9 %}
+                                        
+                                    </div>
+                                    <div class="list-group-item-children-col">
+                                    {% endif %}
+
+                                    {% set i=i+1 %}
+                                {% endfor %}
+
+                                {% if i == 9 %}
+                                    {% set i=0 %}
+                                </div>
+                                <div class="list-group-item-children-col">
+                                {% endif %}
+
+                                {% set i=i+1 %}
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+            {%else%}
+                <a href="{{ category.href }}" class="list-group-item "><span class="dot">·</span> {{ category.name }} <i class="fa fa-caret-right " aria-hidden="true"></i></a>  
+            {% endif %}
+
+
+
+
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+
+
+
+
+
+        $('.dropdown-hover').children().off("click", "**");
+
+
+
+
+
+        $('.dropdown-hover *[data-toggle="dropdown-btn-lvl-2"] ').parent().hover(
+                function () {
+                    $(this).addClass('open');
+                },
+                function () {
+                    $('*').parent().removeClass('open');
+                }
+
+        );
+
+
+
+
+
+
+
+
+
+
+        $('.list-group .list-group-lvl-2 i').click(
+                function () {
+                    var a = $(this).parent().parent().parent();
+
+                    if (a.hasClass('open')) {
+                        a.removeClass('open');
+                    } else {
+                        a.addClass('open');
+                    }
+
+
+                }
+
+        );
+
+
+
+
+
+
+
+    }
+    );
+</script>
