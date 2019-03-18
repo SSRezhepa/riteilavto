@@ -53,10 +53,16 @@ class ControllerCommonColumnRight extends Controller {
 		$data['modules'] = array();
 
 		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'column_right');
+                
+                
+              //  var_dump($modules);
 
 		foreach ($modules as $module) {
 			$part = explode('.', $module['code']);
 
+                       // var_dump($part);
+                        
+                        
 			if (isset($part[0]) && $this->config->get('module_' . $part[0] . '_status')) {
 				$module_data = $this->load->controller('extension/module/' . $part[0]);
 

@@ -151,6 +151,68 @@ class ControllerCommonFooter extends Controller {
 
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+        //rf 
+
+        $this->load->model('extension/module/sitemenu');
+
+        // var_dump($sitemenu);
+
+        static $module = 0;
+
+
+        $data['sitemenu'] = array();
+
+
+        $sitemenu = $this->model_extension_module_sitemenu->getSitemenuModules('footermenu');
+
+        $sitemenu = json_decode($sitemenu[0]['setting'], true);
+
+
+$cols_sitemenu=array();
+
+        
+        $col=0;
+        $k=0;
+        for ($i=0; $i<count($sitemenu['links']);$i++) {
+
+  
+            
+            if ($k>3){
+                $col++;
+                $k=0;
+            }
+            $result=$sitemenu['links'][$i];
+            
+        
+                    $cols_sitemenu[$col][] = array(
+                        'title' => $result['title'],
+                        'href' => $result['href']
+                    );
+                
+                
+                      $k++;
+            
+        }
+
+        
+        $data['sitemenu']=$cols_sitemenu;
+        
+        
+        
+        
         return $this->load->view('common/footer', $data);
     }
 
